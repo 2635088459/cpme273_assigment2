@@ -1,0 +1,30 @@
+services:
+  order_service:
+    build: ./order_service
+    ports:
+      - "5003:5000"
+    environment:
+      PORT: "5000"
+      INVENTORY_URL: "http://inventory_service:5001/reserve"
+      NOTIFICATION_URL: "http://notification_service:5002/send"
+      INVENTORY_TIMEOUT: ${INVENTORY_TIMEOUT:-1.0}
+      NOTIFICATION_TIMEOUT: ${NOTIFICATION_TIMEOUT:-1.0}
+    depends_on:
+      - inventory_service
+      - notification_service
+
+  inventory_service:
+    build: ./inventory_service
+    ports:
+      - "5001:5001"
+    environment:
+      PORT: "5001"
+      INVENTORY_DELAY_MS: ${INVENTORY_DELAY_MS:-0}
+      INVENTORY_FAIL: ${INVENTORY_FAIL:-false}
+
+  notification_service:
+    build: ./notification_service
+    ports:
+      - "5002:5002"
+    environment:
+      PORT: "5002"
