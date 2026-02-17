@@ -116,7 +116,8 @@ Inventory reconnects
 Backlog is processed automatically
 
 System achieves eventual consistency
-<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/da1b5933-252e-402e-8d7f-1aa3b4545700" />
+<img width="1399" height="797" alt="Screenshot 2026-02-16 at 11 08 47 PM" src="https://github.com/user-attachments/assets/43f52860-89b2-4029-8229-209146ccde91" />
+
 
 Idempotency Strategy
 
