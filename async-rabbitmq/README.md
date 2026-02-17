@@ -57,40 +57,46 @@ Services
 -Management UI: http://localhost:15672
 
 **Start the Stack**
+
 docker compose up -d --build
-Verify containers:
+
+**Verify containers:**
 
 docker ps
 
-Normal Request
+**Normal Request**
+
 curl -X POST localhost:8000/order
 
 
-Expected:
+**Expected:**
 
 {"order_id":"<uuid>","status":"order placed"}
 
 
 Order returns immediately without waiting for Inventory or Notification.
 
-Failure Injection – Backlog Demonstration
+**Failure Injection – Backlog Demonstration**
+
 1️⃣ Stop Inventory
+
 docker stop async-rabbitmq-inventory_service-1
 
 2️⃣ Send Multiple Orders
+
 for i in {1..5}; do curl -X POST localhost:8000/order; done
 
 **Observed Behavior**
 
-RabbitMQ → order_placed queue shows:
+-RabbitMQ → order_placed queue shows:
 
-Ready > 0
+-Ready > 0
 
-Consumers = 0
+-Consumers = 0
 
-This demonstrates:
+-This demonstrates:
 
-OrderService continues operating
+-OrderService continues operating
 
 Messages accumulate in the queue
 
@@ -100,8 +106,8 @@ Messages are durable
 Recovery Demonstration
 3️⃣ Restart Inventory
 docker start async-rabbitmq-inventory_service-1
-
-Observed Behavior
+**
+Observed Behavior**
 
 RabbitMQ → order_placed queue shows:
 
@@ -109,7 +115,7 @@ Ready = 0
 
 Consumers = 1
 
-This demonstrates:
+**This demonstrates:**
 
 Inventory reconnects
 
@@ -119,7 +125,7 @@ System achieves eventual consistency
 <img width="1399" height="797" alt="Screenshot 2026-02-16 at 11 08 47 PM" src="https://github.com/user-attachments/assets/43f52860-89b2-4029-8229-209146ccde91" />
 
 
-Idempotency Strategy
+**Idempotency Strategy**
 
 RabbitMQ guarantees at-least-once delivery, meaning duplicate messages may occur.
 
@@ -128,7 +134,8 @@ To prevent duplicate processing, InventoryService maintains a set of processed o
 processed_orders = set()
 
 
-Before processing a message:
+**Before processing a message:
+**
 
 If order_id already exists → skip processing
 
@@ -142,14 +149,14 @@ docker compose down
 
 The asynchronous RabbitMQ implementation provides:
 
-Loose coupling between services
+-Loose coupling between services
 
-Durable message persistence
+-Durable message persistence
 
-Automatic backlog recovery
+-Automatic backlog recovery
 
-Improved fault tolerance
+-Improved fault tolerance
 
-Event-driven scalability
+-Event-driven scalability
 
-This architecture handles service failures more gracefully than synchronous REST.
+-This architecture handles service failures more gracefully than synchronous REST.
