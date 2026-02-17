@@ -1,0 +1,27 @@
+Analytics Service Started...
+Processed: 1000
+Failure Rate: 3.70%
+Processed: 2000
+Failure Rate: 4.45%
+Processed: 3000
+Failure Rate: 4.20%
+Processed: 4000
+Failure Rate: 4.42%
+Processed: 5000
+Failure Rate: 4.46%
+Processed: 6000
+Failure Rate: 4.52%
+Processed: 7000
+Failure Rate: 4.79%
+Processed: 8000
+Failure Rate: 4.83%
+Processed: 9000
+Failure Rate: 4.90%
+Processed: 10000
+Failure Rate: 4.94%
+
+--- FINAL REPORT ---
+Total Orders: 10000
+Failure Rate: 4.94%
+Orders Per Minute distribution:
+Minute 29522706: 10000
