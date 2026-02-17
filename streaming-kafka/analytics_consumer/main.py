@@ -25,6 +25,7 @@ try:
         event = message.value
         total_orders += 1
         
+        
         if event['status'] == 'FAILURE':
             failed_orders += 1
             
