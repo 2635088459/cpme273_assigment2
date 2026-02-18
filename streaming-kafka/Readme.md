@@ -5,6 +5,7 @@ This project implements an Event-Driven Architecture using Apache Kafka to proce
 ## Project Structure
 
 streaming-kafka/
+
 |-- docker-compose.yml       # Infrastructure (Zookeeper + Kafka)
 |-- producer_order/          # Service: Publishes OrderEvents (OrderPlaced)
 |-- inventory_consumer/      # Service: Consumes orders, emits InventoryEvents
