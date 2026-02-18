@@ -63,7 +63,8 @@ docker-compose exec kafka kafka-consumer-groups --bootstrap-server localhost:909
 Evidence File: [run2.txt](./run2.txt)
 
 Comparison Screenshot (Before vs After):
-![Replay Evidence](tests/replay_comparison.png)
+<img width="1470" height="857" alt="Screenshot 2026-02-17 at 6 03 33 PM" src="https://github.com/user-attachments/assets/da631cc1-6e13-482d-b252-9d286f4aaf85" />
+
 *(Note: The metrics in run1.txt and run2.txt are identical, proving deterministic replay).*
 
 ### Requirement 3: Consumer Lag under Throttling
