@@ -75,8 +75,3 @@ To demonstrate flow control and backpressure, a processing delay (sleep) was int
 Lag Screenshot:
 <img width="1470" height="197" alt="Screenshot 2026-02-17 at 1 17 40 PM" src="https://github.com/user-attachments/assets/7c663b99-186d-4bcd-bf13-a9926c6f0942" />
 
-
-## Student Information
-Name: Sakshat Patil
-Course: CMPE 273 Distributed Systems
-Assignment: Lab 2, Part C
