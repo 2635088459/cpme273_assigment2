@@ -1,11 +1,11 @@
-# Part C: Streaming (Kafka) Implementation
+Part C: Streaming (Kafka) Implementation
 
 This project implements an Event-Driven Architecture using Apache Kafka to process order events and generate real-time analytics. It demonstrates producer-consumer decoupling, stream processing, and consumer group replay capabilities.
 
 ## Project Structure
 
+```text
 streaming-kafka/
-
 |-- docker-compose.yml       # Infrastructure (Zookeeper + Kafka)
 |-- producer_order/          # Service: Publishes OrderEvents (OrderPlaced)
 |-- inventory_consumer/      # Service: Consumes orders, emits InventoryEvents
@@ -13,6 +13,7 @@ streaming-kafka/
 |-- run1.txt                 # Evidence: Baseline metrics output (10k events)
 |-- run2.txt                 # Evidence: Replay metrics output (10k events)
 |-- tests/                   # Screenshots and test scripts
+```
 
 ## Implementation Details
 
